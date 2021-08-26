@@ -1,7 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
-import { Cheerio } from 'cheerio';
+
+/* import { Cheerio } from 'cheerio'; */
 
 
 export const UserInfo = () => {
