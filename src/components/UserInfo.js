@@ -5,12 +5,20 @@ import axios from 'axios';
 /* import { Cheerio } from 'cheerio'; */
 
 
+
+
 export const UserInfo = () => {
     const { userName } = useParams();
 
     const getHTML = async(keyword) => {
         try {
-            return await axios.get("https://lostark.game.onstove.com/Profile/Character/" + encodeURI(keyword))
+            return await axios({
+                method: "GET",
+                url: "http://cors-anywhere.herokuapp.com/https://lostark.game.onstove.com/Profile/Character/" + encodeURI(keyword),
+                Headers: {
+                    
+                }
+            })
         }catch(err) {
             console.log(err);
         }
