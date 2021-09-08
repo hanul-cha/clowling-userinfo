@@ -5,8 +5,6 @@ import axios from 'axios';
 /* import { Cheerio } from 'cheerio'; */
 
 
-
-
 export const UserInfo = () => {
     const { userName } = useParams();
 
@@ -23,6 +21,7 @@ export const UserInfo = () => {
             console.log(err);
         }
     }
+
 
     console.log(getHTML(userName));
 
