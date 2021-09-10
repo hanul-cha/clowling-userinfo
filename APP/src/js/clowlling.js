@@ -1,8 +1,11 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 
-export default function clowlling(userName) {
-    const getHTML = async(keyword) => {
+class clowlling {
+    constructor(keyword) {
+        this.keyword = keyword;
+    }
+    getHTML = async(keyword) => {
         try {
             return await axios.get("https://lostark.game.onstove.com/Profile/Character/" + encodeURI(keyword))
         }catch(err) {
@@ -10,8 +13,8 @@ export default function clowlling(userName) {
         }
     }
     
-    const parsing = async (keyword) => {
-        const html = await getHTML(keyword);
+    parsing = async (keyword) => {
+        const html = await this.getHTML(keyword);
         const $ = cheerio.load(html.data);
         const $userInfo = $(".profile-info");
         
@@ -31,9 +34,9 @@ export default function clowlling(userName) {
         });
         return info;
     }
-
-    parsing(userName);
 }
+
+module.exports = clowlling;
 
 
 
