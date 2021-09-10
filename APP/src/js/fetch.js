@@ -1,13 +1,19 @@
+import { text } from "body-parser";
 
 const clowlling = require("./clowlling");
+
+const port = process.env.PORT || 5000;
 
 
 
 export function postWeb(userName) {
-    const userInfo = new clowlling(userName);
-    const info = userInfo.parsing();
+    /* const userInfo = new clowlling(userName); */
+    const info = {
+        type: text,
+        num: "10"
+    };
 
-    fetch("http://localhost:5000/", {
+    fetch(`http://localhost:${port}/api/user`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
