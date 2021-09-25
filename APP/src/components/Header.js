@@ -20,6 +20,7 @@ export default function Header() {
         history.push(`/info_page/${userName}`);
         setText("")
         
+        
     }
 
     return <div className="header clearFix">
